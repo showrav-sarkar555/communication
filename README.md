@@ -44,25 +44,27 @@ A comprehensive web-based study guide for Communication Engineering, covering 10
 
 ## 💻 How to Use
 
+### Online (GitHub Pages)
+Visit: **https://showrav-sarkar555.github.io/communication/**
+
+### Local Usage
 1. Clone this repository
-2. Open `website/index.html` in your web browser
+2. Open `index.html` in your web browser
 3. Navigate through lectures using the sidebar
 4. Use the search box to find specific topics
 5. Press Ctrl+P to print any lecture
-
-## 📖 Usage
-
-Simply open the `website/index.html` file in any modern web browser. No server or build process required!
 
 ```bash
 # Clone the repository
 git clone https://github.com/showrav-sarkar555/communication.git
 
-# Navigate to website folder
-cd communication/website
+# Navigate to folder
+cd communication
 
 # Open index.html in your browser
 start index.html  # Windows
+open index.html   # macOS
+xdg-open index.html  # Linux
 ```
 
 ## 🛠️ Technologies Used
