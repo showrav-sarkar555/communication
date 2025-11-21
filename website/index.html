@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Engineering - Lecture Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>📡 Communication</h2>
+                <p>CSE 511 / CSE 365</p>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Lecture Notes</h3>
+                <ul class="lecture-list">
+                    <li><a href="#" class="lecture-link active" data-lecture="01">
+                        <span class="lecture-num">L-01</span>
+                        <span class="lecture-title">Introduction</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="02">
+                        <span class="lecture-num">L-02</span>
+                        <span class="lecture-title">Network Models</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="03">
+                        <span class="lecture-num">L-03</span>
+                        <span class="lecture-title">Physical Layer</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="04">
+                        <span class="lecture-num">L-04</span>
+                        <span class="lecture-title">Digital Transmission</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="05">
+                        <span class="lecture-num">L-05</span>
+                        <span class="lecture-title">Analog Transmission</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="06">
+                        <span class="lecture-num">L-06</span>
+                        <span class="lecture-title">Bandwidth Utilization</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="07">
+                        <span class="lecture-num">L-07</span>
+                        <span class="lecture-title">Transmission Media</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="08">
+                        <span class="lecture-num">L-08</span>
+                        <span class="lecture-title">Switching</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="09">
+                        <span class="lecture-num">L-09</span>
+                        <span class="lecture-title">Data Link Layer</span>
+                    </a></li>
+                    <li><a href="#" class="lecture-link" data-lecture="10">
+                        <span class="lecture-num">L-10</span>
+                        <span class="lecture-title">Error Detection</span>
+                    </a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-footer">
+                <p>📚 Complete Lecture Notes</p>
+                <p class="course-info">Based on Forouzan's Data Communications and Networking</p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <div class="content-header">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search in notes...">
+                </div>
+            </div>
+            
+            <article id="noteContent" class="note-content">
+                <!-- Markdown content will be loaded here -->
+                <div class="loading">Loading notes...</div>
+            </article>
+            
+            <div class="content-footer">
+                <button id="prevBtn" class="nav-btn">← Previous</button>
+                <button id="nextBtn" class="nav-btn">Next →</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
