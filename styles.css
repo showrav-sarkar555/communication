@@ -306,6 +306,33 @@ body {
     color: var(--text-color);
 }
 
+/* Math Equations Styling with KaTeX */
+.note-content .katex {
+    font-size: 1.1em;
+}
+
+.note-content .katex-display {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.note-content .katex-display > .katex {
+    text-align: center;
+    display: block;
+}
+
+/* Inline math equations */
+.note-content p .katex,
+.note-content li .katex,
+.note-content td .katex {
+    padding: 0 0.15rem;
+}
+
 .note-content table {
     width: 100%;
     border-collapse: collapse;
