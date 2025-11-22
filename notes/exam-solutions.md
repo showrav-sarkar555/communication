@@ -618,6 +618,181 @@ If sum + checksum = 11111111
 
 ---
 
+### Question 4
+
+#### (a) Describe Distortion and Why It Occurs in Amplitude Modulation [3+3 marks]
+
+**What is Distortion?**
+
+Distortion is the alteration of the original signal shape during transmission, causing the received signal to differ from the transmitted signal.
+
+**Types of Distortion in AM:**
+
+1. **Amplitude Distortion (Non-linear Distortion)**
+   - Occurs when modulation index m > 1 (over-modulation)
+   - Causes signal clipping and envelope distortion
+   - Results in harmonic generation and spectral spreading
+
+2. **Frequency Distortion**
+   - Different frequency components experience different attenuation
+   - Non-uniform frequency response of the transmission medium
+   - Causes waveform shape changes
+
+3. **Phase Distortion**
+   - Different frequency components experience different phase shifts
+   - Non-linear phase response
+   - Causes signal timing errors
+
+**Why Distortion Occurs in AM:**
+
+1. **Over-modulation (m > 1)**
+   - When message amplitude exceeds carrier amplitude
+   - Causes envelope to cross zero, creating phase reversals
+   - Results in severe non-linear distortion
+
+2. **Non-linear Amplifier Characteristics**
+   - Amplifiers don't maintain linear input-output relationship
+   - Causes harmonic generation
+   - Introduces intermodulation products
+
+3. **Channel Bandwidth Limitations**
+   - Sidebands get attenuated differently
+   - Insufficient bandwidth cuts off sideband frequencies
+   - Causes envelope distortion
+
+4. **Selective Fading**
+   - In wireless channels, different frequencies fade differently
+   - One sideband may be attenuated more than the other
+   - Causes amplitude and phase distortion
+
+**Prevention:**
+- Keep modulation index m ≤ 1
+- Use linear amplifiers
+- Ensure adequate channel bandwidth (BW ≥ 2fm)
+- Use equalization techniques
+
+#### (b) Transistor Amplifier with Proper Diagram [3 marks]
+
+**Transistor as Amplifier:**
+
+A transistor amplifier increases the amplitude of weak signals while maintaining the signal shape.
+
+**Common Emitter (CE) Amplifier Circuit:**
+
+```
+        VCC (+)
+         |
+         RC (Collector Resistor)
+         |
+    C ---+--- Output
+         |
+    B ---| NPN Transistor
+         |
+    E ---+
+         |
+         RE (Emitter Resistor)
+         |
+        GND
+
+Input: Base (B)
+Output: Collector (C)
+Common: Emitter (E) - grounded through RE
+```
+
+**Components:**
+- **VCC**: DC power supply
+- **RC**: Collector load resistor
+- **RE**: Emitter stabilization resistor  
+- **RB**: Base bias resistor (not shown - voltage divider)
+- **Coupling Capacitors**: Block DC, pass AC
+
+**Working Principle:**
+1. **DC Biasing**: Sets Q-point (operating point) in active region
+2. **Small Signal Input**: Applied to base via coupling capacitor
+3. **Current Amplification**: Small base current controls large collector current
+   - $I_C = \beta I_B$ (where β = current gain = 100-300)
+4. **Voltage Amplification**: Voltage gain $A_v = -\frac{RC}{RE}$
+5. **Phase Inversion**: Output is 180° out of phase with input (negative sign)
+
+**Characteristics:**
+- High voltage gain (typically 100-500)
+- Medium input impedance
+- Medium output impedance
+- 180° phase shift
+- Most commonly used configuration
+
+#### (c) PCM for Analog-to-Digital Conversion [1+3 marks]
+
+**Carrier Wave Definition:**
+
+A carrier wave is a high-frequency sinusoidal signal that carries no information by itself but can be modulated by a message signal to transmit information over long distances.
+
+**Mathematical representation:**
+$$v_c(t) = A_c \sin(2\pi f_c t)$$
+
+Where:
+- $A_c$ = Carrier amplitude
+- $f_c$ = Carrier frequency (typically in MHz range)
+- High frequency enables efficient transmission and antenna size reduction
+
+**Pulse Code Modulation (PCM) for Analog-to-Digital:**
+
+PCM converts continuous analog signals into discrete digital pulses through three main steps:
+
+**Step 1: Sampling**
+- Analog signal sampled at regular intervals
+- Sampling rate must satisfy Nyquist theorem: $f_s \geq 2f_{max}$
+- Example: Voice (4 kHz max) sampled at 8 kHz
+- Produces PAM (Pulse Amplitude Modulation) signal
+
+**Step 2: Quantization**
+- Each sample amplitude mapped to nearest discrete level
+- Number of levels: $L = 2^n$ (n = number of bits)
+- Step size: $\Delta = \frac{V_{max} - V_{min}}{L}$
+- Introduces quantization error: $e_{max} = \pm \frac{\Delta}{2}$
+
+**Step 3: Encoding**
+- Each quantized level assigned unique binary code
+- n-bit encoding produces $2^n$ distinct codes
+- Binary codes transmitted as digital pulses
+
+**Example:**
+- 3-bit PCM: 8 levels (000 to 111)
+- 8-bit PCM: 256 levels (standard telephony)
+- 16-bit PCM: 65,536 levels (CD quality audio)
+
+**PCM Parameters:**
+- Bit rate: $R_b = n \times f_s$ bits/second
+- Bandwidth: $BW = \frac{R_b}{2}$ (Nyquist)
+- SNR: $SNR_{dB} = 6.02n + 1.76$ dB
+
+**Advantages:**
+- Immunity to noise and interference
+- Signal regeneration possible
+- Easy encryption and storage
+- Uniform quality over distance
+
+**Disadvantages:**
+- Large bandwidth required
+- Complex circuitry
+- Quantization noise
+
+**Applications:**
+- Digital telephony (64 kbps)
+- CD audio (1.411 Mbps)
+- Digital video
+- Data communication
+
+---
+
+## PART-B (Continued)
+
+### Question 4 (Already Solved Above)
+
+The PART-A questions 1-3 and PART-B questions 5-8 have been comprehensively solved above with all mathematical calculations verified.
+
+---
+
 ## Summary of Key Formulas
 
 ### Amplitude Modulation:
