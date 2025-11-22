@@ -119,7 +119,10 @@ async function loadLecture(index) {
             markdown = notesCache[lecture.file];
         } else {
             const response = await fetch(`notes/${lecture.file}`);
-            if (!response.ok) throw new Error('Failed to load lecture');
+            if (!response.ok) {
+                console.error(`Failed to load: notes/${lecture.file}`, response.status);
+                throw new Error(`Failed to load lecture (${response.status})`);
+            }
             markdown = await response.text();
             notesCache[lecture.file] = markdown;
         }
@@ -129,26 +132,32 @@ async function loadLecture(index) {
         noteContent.innerHTML = html;
 
         // Render math equations with KaTeX
-        renderMathInElement(noteContent, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ],
-            throwOnError: false,
-            trust: true
-        });
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(noteContent, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\[', right: '\\]', display: true},
+                    {left: '\\(', right: '\\)', display: false}
+                ],
+                throwOnError: false,
+                trust: true
+            });
+        }
 
         // Update page title
         document.title = `${lecture.title} - Communication Engineering`;
 
     } catch (error) {
+        console.error('Error loading lecture:', error);
         noteContent.innerHTML = `
             <div class="error" style="padding: 2rem; text-align: center; color: #dc2626;">
                 <h2>Error Loading Lecture</h2>
-                <p>Failed to load lecture ${lecture.num}. Please try again.</p>
+                <p>Failed to load ${lecture.title}. Please try again.</p>
                 <p style="font-size: 0.875rem; color: #64748b;">${error.message}</p>
+                <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 1rem;">
+                    Trying to load: notes/${lecture.file}
+                </p>
             </div>
         `;
     }
