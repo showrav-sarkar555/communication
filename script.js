@@ -9,7 +9,8 @@ const lectures = [
     { num: '07', title: 'Transmission Media', file: 'lecture-07.md' },
     { num: '08', title: 'Switching', file: 'lecture-08.md' },
     { num: '09', title: 'Data Link Layer', file: 'lecture-09.md' },
-    { num: '10', title: 'Error Detection', file: 'lecture-10.md' }
+    { num: '10', title: 'Error Detection', file: 'lecture-10.md' },
+    { num: 'exam', title: 'Exam Solutions', file: 'exam-solutions.md' }
 ];
 
 let currentLecture = 0;
@@ -36,9 +37,13 @@ function setupEventListeners() {
     lectureLinks.forEach((link, index) => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            loadLecture(index);
-            if (window.innerWidth <= 768) {
-                sidebar.classList.remove('active');
+            const lectureNum = link.getAttribute('data-lecture');
+            const lectureIndex = lectures.findIndex(l => l.num === lectureNum);
+            if (lectureIndex !== -1) {
+                loadLecture(lectureIndex);
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                }
             }
         });
     });
@@ -89,8 +94,9 @@ async function loadLecture(index) {
     const lecture = lectures[index];
 
     // Update active state in sidebar
-    lectureLinks.forEach((link, i) => {
-        if (i === index) {
+    lectureLinks.forEach((link) => {
+        const linkNum = link.getAttribute('data-lecture');
+        if (linkNum === lecture.num) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');

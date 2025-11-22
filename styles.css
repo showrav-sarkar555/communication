@@ -112,6 +112,42 @@ body {
     font-size: 0.9375rem;
 }
 
+/* Exam Section Styles */
+.exam-section {
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.exam-link {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    border-radius: 8px;
+    margin: 0.5rem 1rem;
+    padding: 0.875rem 1rem !important;
+    border-left: 3px solid #10b981 !important;
+}
+
+.exam-link:hover {
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.exam-link.active {
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4);
+}
+
+.exam-link .lecture-num {
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.exam-link .lecture-title {
+    color: #fff;
+    font-weight: 600;
+}
+
 .nav-footer {
     padding: 2rem 1.5rem 1rem;
     border-top: 1px solid rgba(255,255,255,0.1);
